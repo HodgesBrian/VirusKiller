@@ -48,17 +48,17 @@ public class RaycastTracking : MonoBehaviour
     {
         //Debug.Log("CCCCCCCCCCCCCCCCC");
 
-		if (collision.collider.tag == "bloodCell")
+		if (collision.collider.tag == "bloodCell") //this block accounts the damage to the red blood cells.
         {
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-			bloodCellHealth bloodcellhealth = collision.collider.GetComponent<bloodCellHealth>();
+            //Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+			bloodCellHealth bloodcellhealth = collision.collider.GetComponent<bloodCellHealth>(); 
 			bloodcellhealth.takeDamage(damage);
         }
         
         
     }
 
-    void randMovement()
+    void randMovement() // this makes the movement of the blood cell and virus random.
     {
 
         transform.position = Vector2.MoveTowards(transform.position, randVec, .5f * Time.deltaTime);
@@ -69,7 +69,7 @@ public class RaycastTracking : MonoBehaviour
         }
     }
 
-    void moveToAttack()
+    void moveToAttack() // This is the virus's raycast that detects the red bloodcell, and moves it towards it to do damage.
     {
 		Vector2 transDirection = transform.TransformDirection(angle1);
         RaycastHit2D tile_hit = Physics2D.Raycast(transform.position, transDirection, 2f, layerMask);
