@@ -7,7 +7,7 @@ public class EnemySightAttack : MonoBehaviour {
     bool translate = false;
     public GameObject g;
     public Vector3 startPoint, hitPoint;
-    float movementSpeed;
+    public float movementSpeed;
     public LayerMask whatToHit;
     public int range = 25;
 
